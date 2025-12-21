@@ -103,7 +103,7 @@ pip install git+https://github.com/xcc-zach/xtalk.git@main
 <a id="quickstart"></a>
 ## 🚀 Quickstart
 
-We will use APIs from AliCloud to demonstrate the basic capability of **XTalk**.
+We will use APIs from AliCloud to demonstrate the basic capability of **X-Talk**.
 
 First, install dependencies for AliCloud and server script:
 ```bash
@@ -169,7 +169,7 @@ Finally, our demo is ready at `http://localhost:7635`. View it in the browser!
 > [!NOTE]
 > See `example/sample_app/configurable_server.py`, `frontend/src` and `examples/sample_app/templates` for details.
    
-XTalk has most models and execution on server side, and the client is responsible for interacting with microphone, transmitting audio and Websocket messages, and handle lightweight operations like Voice-Actitvty-Detection.
+X-Talk has most models and execution on server side, and the client is responsible for interacting with microphone, transmitting audio and Websocket messages, and handle lightweight operations like Voice-Actitvty-Detection.
     
 For client side, you can start with snippet in `examples/sample_app/templates/index.html` and track where `convo` is used to see how to use frontend API:
 ```html
@@ -192,7 +192,7 @@ switch (json.action) {
 
 We plan to improve the client-side API in the near future.
 
-For the server side, the core logic is to connect a Xtalk instance to Websocket of FastAPI instance:
+For the server side, the core logic is to connect a X-Talk instance to Websocket of FastAPI instance:
 ```python
 from fastapi import FastAPI, WebSocket
 from xtalk import Xtalk
@@ -210,7 +210,7 @@ Then you can check `example/sample_app/configurable_server.py` for how to mount 
 > [!NOTE]
 > See `examples/sample_app/configurable_server.py` and `frontend/src/js/index.js` for details.
     
-Xtalk can understand documents uploaded through embedding search. To enable embedding, you need `langchain_openai.OpenAIEmbeddings` in the config:
+X-Talk can understand documents uploaded through embedding search. To enable embedding, you need `langchain_openai.OpenAIEmbeddings` in the config:
 ```json
 "embeddings": {
     "type": "OpenAIEmbeddings",
@@ -222,7 +222,7 @@ Xtalk can understand documents uploaded through embedding search. To enable embe
   },
 ```
 
-Then you can fetch `text` and `session_id` from client side and notify Xtalk instance through `embed_text`:
+Then you can fetch `text` and `session_id` from client side and notify X-Talk instance through `embed_text`:
 ```python
 @app.post("/api/upload")
 async def upload_file(
@@ -248,7 +248,7 @@ Note that client side should save `session_id` and send it in the request. Searc
 > [!NOTE]
 > See `examples/sample_app/mental_consultant_server.py` for details.
     
-Xtalk supports textual tool customization through `add_agent_tools`:
+X-Talk supports textual tool customization through `add_agent_tools`:
 ```python
 xtalk_instance.add_agent_tools([build_mental_questionnaire_tool])
 ```
@@ -280,7 +280,7 @@ Built-in tools include agent-scope ones like `web_search` and `get_time`, and pi
 
 ### Config the Server
     
-As mentioned [before](#start-the-server), Xtalk instance can be created from a JSON config, which customizes models used and controls concurrency behavior.
+As mentioned [before](#start-the-server), X-Talk instance can be created from a JSON config, which customizes models used and controls concurrency behavior.
     
 For model config, config should match model Python class name and init args. For example, the definition of `DefaultAgent` lies in `src/xtalk/llm_agent/default.py`:
 ```python
@@ -403,7 +403,7 @@ Recipes for major model customization are listed below. You can read source code
 > See `src/xtalk/model_types.py` for all available model types.
     
 > [!IMPORTANT]
-> Xtalk has asynchronous default implementations for sync versions, which usually with `run_in_executor`, like `async_recognize` for `recognize` w.r.t. ASR. However, in order to achieve best concurrency for production, we recommend to implement these async versions by your self.
+> X-Talk has asynchronous default implementations for sync versions, which usually with `run_in_executor`, like `async_recognize` for `recognize` w.r.t. ASR. However, in order to achieve best concurrency for production, we recommend to implement these async versions by your self.
 
 ##### New ASR (auto-speech-recognition) Model
     
@@ -431,7 +431,7 @@ Methods below are optional:
 > Input for `recognize` and `recognize_stream` is PCM 16-bit mono 16 kHz raw bytes. You may need to do conversion by yourself.
     
 > [!NOTE]
-> Xtalk have default implementation for `recognize_stream` with a `MockStreamRecognizer`. Therefore, no worry for your non-streaming ASR models.
+> X-Talk have default implementation for `recognize_stream` with a `MockStreamRecognizer`. Therefore, no worry for your non-streaming ASR models.
 
 > [!NOTE]
 > You can refer to existing implementations (e.g., `src/xtalk/speech/asr/zipformer_local.py`) when building your own ASR class. We recommend deploying ASR as a separate service and invoking it via API calls within the ASR class, referencing the implementation of `src/xtalk/speech/asr/sherpa_onnx_asr.py`.
@@ -473,7 +473,7 @@ Your new TTS class must inherit from `xtalk.speech.interfaces.TTS` and implement
 ### Customize the Service
 
 > [!NOTE]
-> See `examples/sample_app/custom_service.py` for details. A dummy `LLMOutputRefactorModel` is added to Xtalk to prepend `Assistant response: ` before model response text.
+> See `examples/sample_app/custom_service.py` for details. A dummy `LLMOutputRefactorModel` is added to X-Talk to prepend `Assistant response: ` before model response text.
     
 If you want to add new functionality, you can follow the procesures below:
     
@@ -541,7 +541,7 @@ class CustomPipeline(DefaultPipeline):
 ```
 Note that `**kwargs` is necessary in `__init__` to swallow shadowed parameters from `DefaultPipeline`. And if you add a new arg to `__init__`, you will need to register it as a `field`, specifying its `clone` behavior (`True/False`)
 
-Based on xtalk’s event-bus mechanism, then you can add a new `Manager` to subscribe to an existing `Event` and implement the custom functionality you need. Meanwhile, you can create a new `Event` if needed.
+Based on X-Talk’s event-bus mechanism, then you can add a new `Manager` to subscribe to an existing `Event` and implement the custom functionality you need. Meanwhile, you can create a new `Event` if needed.
     For Example:
 ```python
 LLMOutputRefactoredFinal = create_event_class(
@@ -606,11 +606,11 @@ custom_service.subscribe_event(
 <a id="design-philosophy"></a>
 ## 🧩 Design Philosophy
 
-![XTalk](https://github.com/user-attachments/assets/f6890c80-f5ec-426d-bbda-24ee6e6170e8)
-*Prospective Data Flow of Xtalk*
+![XTalk Data Flow](https://github.com/user-attachments/assets/db52398a-80b1-46e0-9e09-63cf301eed59)
+*Prospective Data Flow of X-Talk*
 
-![architecture_page-0001](https://github.com/user-attachments/assets/cf0a3fc9-60b0-438b-903b-3d91b30b47d6)
-*Architecture of Xtalk*
+![XTalk Architecture](https://github.com/user-attachments/assets/5187cd7b-ce8d-4273-8c60-6b552e139c3d)
+*Architecture of X-Talk*
 
 X-Talk follows a **modular, stage-wise functional flow**, progressing from noisy speech input, through frontend speech interaction, speech understanding, and an LLM-driven conversational agent, to speech generation. This logical pipeline is realized through a **layered, event-driven, and loosely-coupled architecture**, which forms the core of the system.
 
@@ -796,7 +796,7 @@ A high-performance speech recognition framework and beyond.
     
 **Slot**: `vad`
     
-Xtalk has VAD on client side, so you may not need one.
+X-Talk has VAD on client side, so you may not need one.
 
 <details>
 <summary>Silero VAD</summary>
