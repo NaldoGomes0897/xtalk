@@ -9,7 +9,7 @@
 <!-- <img src="PENDING" alt="Watermark" style="width: 40px; height: auto"> -->
 > ⚠️ X-Talk is in active prototyping. Interfaces and functions are subject to change. We will try to keep interfaces stable.
 
-X-Talk is an open-source full-duplex spoken dialogue system framework featuring:
+X-Talk is an open-source full-duplex cascaded spoken dialogue system framework featuring:
 - ⚡ **Low-Latency, Interruptible, Human-Like Speech Interaction**
     - Speech flow is optimized to support **impressive low latency**
     - Enables **natural user interruption** during interaction
@@ -37,6 +37,7 @@ X-Talk is an open-source full-duplex spoken dialogue system framework featuring:
 - [Design Philosophy](#design-philosophy)
 - [Supported Models](#supported-models)
 - [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 <a id="demo"></a>
@@ -859,7 +860,17 @@ Captioners give you description of audio clip.
 ## Contributing
     
 See [Contribution Guide](CONTRIBUTING.md)
-    
+
+## Acknowledgements
+
+We express sincere gratitude for:
+
+- [Langchain](https://www.langchain.com/) as backbone of LLM agents
+- [vllm](https://github.com/vllm-project/vllm) for deployment of most models
+- All model providers mentioned in [Supported Models](#supported-models)
+
+All of you provide the solid foundation of X-Talk!
+
 ## License
     
 This project is licensed under the Apache License 2.0, if you do not install optional dependencies. Some optional dependencies may be under incompatible licenses.
