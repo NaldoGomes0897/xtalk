@@ -2,6 +2,7 @@
 <img width="460" height="249" alt="xtalk-logo-new" src="https://github.com/user-attachments/assets/4e252ce8-7450-4335-b86a-4b9b26200792" />
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge)](https://xtalk.sjtuxlance.com/)
+[![arXiv](https://img.shields.io/badge/arXiv-Tech_Report-B31B1B?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2512.18706)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue?style=for-the-badge&labelColor=555555)](https://opensource.org/licenses/Apache-2.0)
 
@@ -149,7 +150,15 @@ After that, create a JSON config specifying the models to use, and **fill in <AP
     
 </details>
 
-> If you find *Qwen3ASRFlashRealtime* not working properly, you can use `"asr": "SenseVoiceSmallLocal",` instead which is a ~1GB local model.
+> If you find *Qwen3ASRFlashRealtime* not working properly, you can use `"asr": "SenseVoiceSmallLocal",` instead which is a ~1GB local model. Also, you can try to use local speech generation model *IndexTTS* ([setup tutorial](https://github.com/Ksuriuri/index-tts-vllm)):
+> ```json
+> "tts": {
+>     "type": "IndexTTS",
+>     "params": {
+>         "port": 6006
+>     }
+> },
+> ```
 
 The next step is to compose the startup script. Since we also need to link frontend webpage and scripts to get the demo working, the startup script is ready at `examples/sample_app/configurable_server.py`. We simply need to start the server with the config file (**fill in <PATH_TO_CONFIG>.json** with the path to the config file we just created) and a custom port:
 ```bash
